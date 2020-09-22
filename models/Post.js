@@ -8,3 +8,5 @@ const postSchema = new Schema({
   body: String,
   datePosted: Date,
 });
+
+mongoose.model("posts", postSchema);
