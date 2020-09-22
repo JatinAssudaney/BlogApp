@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Header from "./Header/Header";
 import "./App.css";
 import Landing from "./Landing/Landing";
-export default class App extends Component {
+import { fetchUser } from "../actions";
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
       <div className="container">
@@ -24,3 +30,9 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = null;
+
+const mapDispatchToProps = { fetchUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

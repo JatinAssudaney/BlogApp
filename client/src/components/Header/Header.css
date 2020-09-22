@@ -10,6 +10,8 @@
 .logo {
   display: flex;
   align-items: flex-end;
+  text-decoration: none;
+  color: var(--main-color);
 }
 
 .logo__icon {
@@ -48,15 +50,21 @@
 .nav-links {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links__link {
   text-decoration: none;
   color: black;
   font-weight: medium;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
-.contact {
+.login,
+.logout {
+  padding: 0.5rem 1rem;
+  background-color: var(--call-to-action);
   margin-left: 70px;
+  border-radius: 10px;
 }

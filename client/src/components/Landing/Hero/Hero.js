@@ -7,7 +7,7 @@ export default class Hero extends Component {
     return (
       <div className="hero__container">
         <div className="hero__about">
-          The collection of all the learning in my{" "}
+          The collection of all the learning in people's{" "}
           <span className="hero__about--main-text">
             web development journey.
           </span>
