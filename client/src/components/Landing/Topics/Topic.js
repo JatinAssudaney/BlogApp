@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import "./Topic.css";
+import { connect } from "react-redux";
 
-export default class Topic extends Component {
-  list = [
-    "#html",
-    "#css",
-    "#javascript",
-    "#reactjs",
-    "#redux",
-    "#nodejs",
-    "#mongodb",
-  ];
+import "./Topic.css";
+import { fetchTags } from "../../../actions";
+
+class Topic extends Component {
+  componentDidMount() {
+    this.props.fetchTags();
+  }
+
   renderTopics() {
-    return this.list.map((item) => {
-      return <li className="topic__list--item">{item}</li>;
+    return this.props.tags.map((tag) => {
+      return (
+        <li key={tag._id} className="topic__list--item">
+          {tag._id}
+        </li>
+      );
     });
   }
 
@@ -22,7 +24,7 @@ export default class Topic extends Component {
       <div className="topic__container">
         <div className="topic__heading">
           Dive deeper into the{" "}
-          <span className="topic__heading--main-text">Topics</span> that matters
+          <span className="topic__heading--main-text">Topics</span> that matter
           to you.
         </div>
         <ul className="topic__list">{this.renderTopics()}</ul>
@@ -30,3 +32,9 @@ export default class Topic extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  tags: state.tags,
+});
+
+const mapDispatchToProps = { fetchTags };
+export default connect(mapStateToProps, mapDispatchToProps)(Topic);

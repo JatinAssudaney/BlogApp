@@ -5,4 +5,4 @@ const topicSchema = new Schema({
   topicName: String,
 });
 
-mongoose.model("topics", topicSchema);
+module.exports = topicSchema;
