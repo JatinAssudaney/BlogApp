@@ -1,0 +1,32 @@
+.post__create {
+  border: none;
+  outline: none;
+  background-color: var(--call-to-action);
+  border-radius: 50%;
+  position: relative;
+  z-index: 50;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post__create-link {
+  text-decoration: none;
+}
+.post__create-link:visited {
+  text-decoration: none;
+}
+
+.post__create--icon {
+  padding: 0;
+  margin: 0;
+  width: 1.3rem;
+  height: auto;
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(189deg) brightness(94%)
+    contrast(106%);
+}

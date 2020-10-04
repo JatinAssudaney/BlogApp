@@ -10,7 +10,8 @@ class Topic extends Component {
   }
 
   renderTopics() {
-    return this.props.tags.map((tag) => {
+    const { tags } = this.props;
+    return tags.map((tag) => {
       return (
         <li key={tag._id} className="topic__list--item">
           {tag._id}

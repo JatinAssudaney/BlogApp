@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const requireLogin = require("../middlewares/requireLogin");
 const Post = mongoose.model("posts");
 
 let offset = 0;
@@ -6,6 +7,8 @@ let limit = 7;
 
 module.exports = (app) => {
   app.get("/api/posts", async (req, res) => {
+    // Returns headings,tags and datePosted from the posts with the implementation of Pagination
+
     try {
       const posts = await Post.find({}, { heading: 1, tags: 1, datePosted: 1 })
         .sort({ datePosted: -1 })
@@ -24,6 +27,8 @@ module.exports = (app) => {
   });
 
   app.get("/api/posts/tags", async (req, res) => {
+    // Returns All Unique Tags from all the posts in our dB
+
     try {
       const tags = await Post.aggregate([
         { $unwind: "$tags" },
@@ -41,6 +46,8 @@ module.exports = (app) => {
   });
 
   app.get("/api/:topicName", async (req, res) => {
+    // Returns top Posts from a particular topic from all the posts in our dB with implementation of Pagination
+
     const tag = req.params.topicName;
     console.log(tag);
     try {
@@ -65,7 +72,9 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/posts", async (req, res) => {
+  app.post("/api/posts", requireLogin, async (req, res) => {
+    // Creates new blog Post and saves them to our dB
+
     try {
       const { heading, subHeading, headerImage, body, tags } = req.body;
       const id = mongoose.Types.ObjectId("4edd40c86762e0fb12000003");
@@ -73,6 +82,7 @@ module.exports = (app) => {
         heading,
         subHeading,
         body,
+        headerImage,
         tags: tags.split(",").map((tag) => {
           return { topicName: tag.trim() };
         }),

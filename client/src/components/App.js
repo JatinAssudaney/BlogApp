@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Header from "./Header/Header";
 import "./App.css";
 import Landing from "./Landing/Landing";
+import PostNew from './Posts/PostCreate/PostNew';
 import { fetchUser } from "../actions";
 class App extends Component {
   componentDidMount() {
@@ -19,9 +20,10 @@ class App extends Component {
             <Header />
             <Switch>
               <Route exact path="/" component={Landing} />
+              <Route exact path="/posts/new" component={PostNew} />
               {/* 
               <Route exact path="/surveys" component={Dashboard} />
-              <Route exact path="/surveys/new" component={SurveyNew} />
+              
               <Route component={NotFound} /> */}
             </Switch>
           </div>

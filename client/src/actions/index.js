@@ -21,3 +21,11 @@ export const fetchTags = () => {
     dispatch({ type: FETCH_TAGS, payload: res.data });
   };
 };
+
+export const submitPost = (values, history) => {
+  return async (dispatch, getState) => {
+    const res = await axios.post("/api/posts", values);
+    history.push("/");
+    dispatch({ type: FETCH_USER, payload: res.data });
+  };
+};
