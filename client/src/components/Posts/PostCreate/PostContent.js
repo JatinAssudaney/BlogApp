@@ -17,7 +17,7 @@ class PostContent extends Component {
       <div>
         <label>Content</label>
         <div>
-          <textarea {...input} ref={(c) => (this.textarea = c)} />
+          <textarea {...input} ref={(c) => (this.textarea = c)} cols="100" />
           {touched &&
             ((error && <span>{error}</span>) ||
               (warning && <span>{warning}</span>))}

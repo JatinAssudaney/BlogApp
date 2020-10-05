@@ -6,21 +6,23 @@ import { submitPost } from "../../../actions";
 import { withRouter } from "react-router-dom";
 import Logo from "../../Header/web-programming.svg";
 import ReactMarkdown from "react-markdown";
+import "./PostFormPreview.css";
 
 const SurveyFormReview = ({ onCancel, formValues, submitPost, history }) => {
-  //   const reviewFields = _.map(formFields, ({ name, label }) => {
-  //     console.log(formFields[name]);
-  //     return (
-  //       <div key={name}>
-  //         <div>{formValues[name]}</div>
-  //       </div>
-  //     );
-  //   });
   const renderContent = () => {
     console.log(formValues);
     const { heading, subHeading, headerImage, body, tags } = formValues;
-    return <ReactMarkdown source={body} />;
+    return (
+      <div className="article__container">
+        <h1>{heading}</h1>
+        <h2>{subHeading}</h2>
+        <img src={headerImage} alt="" />
+        <p>{tags}</p>
+        <ReactMarkdown source={body} />
+      </div>
+    );
   };
+
   return (
     <div>
       <h5>Please confirm your enteries</h5>
