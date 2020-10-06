@@ -9,24 +9,46 @@ import "./prism.css";
 import "./PostFormPreview.css";
 
 const PostFormReview = ({ formValues, submitPost, history }) => {
+  const displayTags = (tags) => {
+    if (tags) {
+      return tags.split(",").map((tag) => {
+        if (tag.length > 1) {
+          return (
+            <span key={tag} className="post__tag">
+              {tag.trim()}
+            </span>
+          );
+        }
+      });
+    }
+  };
+
+  const renderButton = ({ heading, subHeading, headerImage, body, tags }) => {
+    if (heading && subHeading && headerImage && body && tags) {
+      return (
+        <button
+          className="submit"
+          onClick={() => submitPost(formValues, history)}
+        >
+          Post Blog to
+          <img src={Logo} alt="Post to our Blog" className="submit__icon" />
+        </button>
+      );
+    }
+  };
+
   const renderContent = () => {
     if (formValues) {
       Prism.highlightAll();
       const { heading, subHeading, headerImage, body, tags } = formValues;
       return (
         <div className="article__container">
+          {renderButton(formValues)}
           <h1 className="post__heading">{heading}</h1>
-          <h2 className="post__subHeading">{subHeading}</h2>
+          <h4 className="post__subHeading">{subHeading}</h4>
           <img src={headerImage} alt="" className="post__headerImage" />
-          <p className="post__tags">{tags}</p>
+          <div className="post__tags">{displayTags(tags)}</div>
           <ReactMarkdown source={body} className="post__body" />
-          <button
-            className="submit"
-            onClick={() => submitPost(formValues, history)}
-          >
-            Post Blog to
-            <img src={Logo} alt="Post to our Blog" className="submit__icon" />
-          </button>
         </div>
       );
     }

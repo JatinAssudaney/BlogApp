@@ -4,5 +4,5 @@
   margin-right: 5vw;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  align-items: flex-start;
 }

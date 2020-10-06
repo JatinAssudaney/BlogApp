@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 /* MARKDOWN STYLING */
 body {
-  --primary-color: #339989;
+  --primary-color: var(--call-to-action);
   --accent-color: #7de2d1;
   --nav-section-text-color: #2b2c28;
   --body-color: #fff;
@@ -130,23 +130,56 @@ summary:focus {
 }
 
 .postPreview__container {
-  background-color: var(--subtle-background);
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
   margin-left: 5vw;
   width: 50%;
+}
+
+.article__container {
   display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
 }
-
 .post__headerImage {
-  width: 20vw;
+  width: 40%;
+  text-align: center;
   height: auto;
+  /* align-self: center; */
 }
 
+.post__tags {
+  margin-top: 0.5rem;
+}
+
+.post__tag {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: white;
+  padding: 0.4rem 0.6rem;
+  margin-right: 0.5rem;
+}
+.post__body {
+  margin-top: 0.5rem;
+}
 .submit {
-  display: inline-block;
+  padding: 0.5rem 1rem;
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--call-to-action);
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2rem;
 }
 
 .submit__icon {
-  width: 0.5rem;
+  margin-left: 0.7rem;
+  width: 1rem;
   height: auto;
 }
