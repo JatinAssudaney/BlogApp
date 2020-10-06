@@ -20,6 +20,7 @@
 }
 
 .logo__title {
+  margin: 0;
   margin-left: 10px;
   font-weight: bold;
 }
