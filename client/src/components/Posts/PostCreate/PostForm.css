@@ -1,0 +1,5 @@
+.postCreate__container {
+  width: 33vw;
+  display: flex;
+  flex-direction: column;
+}

@@ -5,7 +5,6 @@ class PostContent extends Component {
   componentDidMount() {
     this.textarea.focus();
     autosize(this.textarea);
-    console.log(this.props);
   }
 
   render() {
@@ -17,7 +16,7 @@ class PostContent extends Component {
       <div>
         <label>Content</label>
         <div>
-          <textarea {...input} ref={(c) => (this.textarea = c)} cols="100" />
+          <textarea {...input} ref={(c) => (this.textarea = c)} cols="60" />
           {touched &&
             ((error && <span>{error}</span>) ||
               (warning && <span>{warning}</span>))}

@@ -1,10 +1,10 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { Link } from "react-router-dom";
 import formFields from "./formFields";
 import PostField from "./PostField";
 import PostTextArea from "./PostContent";
+import "./PostForm.css";
 
 class PostForm extends Component {
   renderFields() {
@@ -23,16 +23,10 @@ class PostForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onPostSubmit)}>
+      <div className="postCreate__container">
+        <form>
           {this.renderFields()}
           <Field component={PostTextArea} name="body" />
-          <Link to="/" className="">
-            Cancel
-          </Link>
-          <button type="submit" className="">
-            Next
-          </button>
         </form>
       </div>
     );

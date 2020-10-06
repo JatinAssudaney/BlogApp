@@ -1,1 +1,21 @@
 /* TO DISPLAY PROPER MARKDOWN YOU NEED CSS */
+.postPreview__container {
+  background-color: var(--subtle-background);
+  width: 33vw;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.post__headerImage {
+  width: 20vw;
+  height: auto;
+}
+
+.submit {
+  display: inline-block;
+}
+
+.submit__icon {
+  width: 0.5rem;
+  height: auto;
+}
