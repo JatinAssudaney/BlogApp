@@ -23,12 +23,10 @@ class PostForm extends Component {
 
   render() {
     return (
-      <div className="postCreate__container">
-        <form>
-          {this.renderFields()}
-          <Field component={PostTextArea} name="body" />
-        </form>
-      </div>
+      <form className="postCreate__container">
+        {this.renderFields()}
+        <Field component={PostTextArea} name="body" />
+      </form>
     );
   }
 }

@@ -4,11 +4,14 @@ import { submitPost } from "../../../actions";
 import { withRouter } from "react-router-dom";
 import Logo from "../../Header/web-programming.svg";
 import ReactMarkdown from "react-markdown";
+import Prism from "prismjs";
+import "./prism.css";
 import "./PostFormPreview.css";
 
 const PostFormReview = ({ formValues, submitPost, history }) => {
   const renderContent = () => {
     if (formValues) {
+      Prism.highlightAll();
       const { heading, subHeading, headerImage, body, tags } = formValues;
       return (
         <div className="article__container">

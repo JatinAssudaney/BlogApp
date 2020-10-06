@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import autosize from "autosize";
+import "./PostContent.css";
 
 class PostContent extends Component {
   componentDidMount() {
@@ -13,10 +14,15 @@ class PostContent extends Component {
       meta: { touched, error, warning },
     } = this.props;
     return (
-      <div>
-        <label>Content</label>
+      <div className="post-field">
+        <label className="post-field__label">Content</label>
         <div>
-          <textarea {...input} ref={(c) => (this.textarea = c)} cols="60" />
+          <textarea
+            className="post-field__body"
+            {...input}
+            ref={(c) => (this.textarea = c)}
+            cols="50"
+          />
           {touched &&
             ((error && <span>{error}</span>) ||
               (warning && <span>{warning}</span>))}

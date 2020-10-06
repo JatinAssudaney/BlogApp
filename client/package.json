@@ -9,6 +9,7 @@
     "autosize": "^4.0.2",
     "axios": "^0.20.0",
     "http-proxy-middleware": "^1.0.5",
+    "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",

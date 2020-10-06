@@ -1,0 +1,7 @@
+.post-field__body {
+  appearance: none;
+  border: 1px solid var(--main-color);
+  outline: none;
+  width: 100%;
+  font: inherit;
+}

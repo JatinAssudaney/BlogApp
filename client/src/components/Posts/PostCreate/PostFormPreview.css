@@ -1,7 +1,138 @@
 /* TO DISPLAY PROPER MARKDOWN YOU NEED CSS */
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+/* MARKDOWN STYLING */
+body {
+  --primary-color: #339989;
+  --accent-color: #7de2d1;
+  --nav-section-text-color: #2b2c28;
+  --body-color: #fff;
+  --nav-item-color: #fff;
+  --body-accent-color: #e1e4e8;
+  --alternate-table-color: #eaecef;
+  --primary-text-color: #24292e;
+  --link-color: var(--primary-color);
+  --table-border-color: #ddd;
+  --source-code-font: "Source Code Pro", monospace;
+  --open-sans-font: "Open Sans", sans-serif;
+  --color-transition: 0.3s ease-out;
+  background-color: var(--body-color);
+  transition: background-color var(--color-transition);
+  margin: 0;
+  color: var(--primary-text-color);
+  font-family: var(--open-sans-font);
+}
+p {
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+hr {
+  border: none;
+  height: 0.187rem;
+  margin: 1.5rem 0;
+  background-color: var(--body-accent-color);
+  transition: background-color var(--color-transition);
+}
+pre {
+  background-color: #272822;
+  transition: background-color var(--color-transition);
+  line-height: 1.45;
+  padding: 0.8em;
+  overflow: auto;
+  border-radius: 6px;
+  font-size: 0.9em;
+  padding: 1rem;
+  width: 100%;
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+:not(pre) > code {
+  font-size: 85%;
+  border-radius: 0.3em;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  transition: color var(--color-transition);
+  transition: background-color var(--color-transition);
+}
+code {
+  font-family: var(--source-code-font);
+  color: white;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+blockquote {
+  border-left: 0.312em solid var(--body-accent-color);
+  transition: border-color var(--color-transition);
+  padding-left: 1rem;
+}
+img {
+  max-width: 100%;
+}
+h1 {
+  margin: 1.5rem 0 1rem;
+  line-height: 1.33;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--body-accent-color);
+  transition: border-color var(--color-transition);
+}
+h2 {
+  margin: 1.5rem 0 1rem;
+  line-height: 1.33;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--body-accent-color);
+  transition: border-color var(--color-transition);
+}
+h3 {
+  margin: 1.5rem 0 1rem;
+  line-height: 1.33;
+}
+h4 {
+  margin: 1.5rem 0 1rem;
+  line-height: 1.33;
+}
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0.5rem;
+}
+
+th,
+td {
+  border: 0.08rem solid var(--table-border-color);
+  transition: border-color var(--color-transition);
+  text-align: left;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+}
+
+tr:nth-child(even) {
+  background-color: var(--alternate-table-color);
+  transition: background-color var(--color-transition);
+}
+
+th {
+  background-color: var(--primary-color);
+  transition: background-color var(--color-transition);
+  color: white;
+}
+summary:focus {
+  outline: none;
+}
+
 .postPreview__container {
   background-color: var(--subtle-background);
-  width: 33vw;
+  margin-left: 5vw;
+  width: 50%;
   display: flex;
   flex-wrap: nowrap;
 }
