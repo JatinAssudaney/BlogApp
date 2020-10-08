@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
 const Post = mongoose.model("posts");
+const User = mongoose.model("users");
 
 let offset = 0;
 let limit = 7;
@@ -8,12 +9,28 @@ let limit = 7;
 module.exports = (app) => {
   app.get("/api/posts", async (req, res) => {
     // Returns headings,tags and datePosted from the posts with the implementation of Pagination
-
     try {
+      const trialPosts = await Post.aggregate([
+        {
+          $lookup: {
+            from: "users",
+            localField: "_user",
+            foreignField: "_id",
+            as: "_user",
+          },
+        },
+        { $unwind: { path: "$_user" } },
+      ]);
       const posts = await Post.find(
         {},
-        { heading: 1, tags: 1, datePosted: 1 }
+        {
+          heading: 1,
+          tags: 1,
+          datePosted: 1,
+          _user: 1,
+        }
       ).sort({ datePosted: -1 });
+
       // .skip(offset)
       // .limit(limit);
       offset += limit;
@@ -21,6 +38,8 @@ module.exports = (app) => {
         res.send([]);
       } else {
         // res.send({ length: posts.length, posts });
+        console.log(trialPosts.length);
+
         res.send(posts);
       }
     } catch (error) {
@@ -86,9 +105,10 @@ module.exports = (app) => {
         tags: tags.split(",").map((tag) => {
           return { topicName: tag.trim() };
         }),
-        _user: req.user._id,
+        _user: req.user.id,
         datePosted: Date.now(),
       }).save();
+      console.log(post);
       res.send({});
     } catch (error) {
       res.send({ error: error.message });

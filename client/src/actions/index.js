@@ -1,5 +1,10 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_POSTS, FETCH_TAGS } from "./types";
+import {
+  FETCH_USER,
+  FETCH_POSTS,
+  FETCH_TAGS,
+  FETCH_POSTS_OF_TAG,
+} from "./types";
 
 export const fetchUser = () => {
   return async (dispatch, getState) => {
@@ -15,10 +20,17 @@ export const fetchPosts = () => {
   };
 };
 
+export const fetchPost = (userId, id) => {
+  return async (dispatch, getState) => {
+    const res = await axios.get(`/api/${userId}/${id}`);
+    dispatch({ type: FETCH_POSTS, payload: res.data });
+  };
+};
+
 export const fetchPostsOfTag = (topic) => {
   return async (dispatch, getState) => {
     const res = await axios.get(`/api/${topic}`);
-    dispatch({ type: FETCH_POSTS, payload: res.data });
+    dispatch({ type: FETCH_POSTS_OF_TAG, payload: res.data });
   };
 };
 

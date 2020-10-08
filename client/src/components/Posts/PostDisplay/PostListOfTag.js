@@ -4,7 +4,6 @@ import { fetchPostsOfTag } from "../../../actions";
 
 class PostListOfTag extends Component {
   componentDidMount() {
-    console.log(this.props.match.params.topicName);
     const { topicName } = this.props.match.params;
     this.props.fetchPostsOfTag(topicName);
   }
@@ -16,7 +15,6 @@ class PostListOfTag extends Component {
       day: "numeric",
     };
     const { posts } = this.props;
-    console.log(posts);
     return posts.map((post) => {
       return (
         <Fragment key={post._id}>
