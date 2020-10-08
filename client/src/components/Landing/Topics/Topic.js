@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { Link } from "react-router-dom";
 import "./Topic.css";
 import { fetchTags } from "../../../actions";
 
@@ -13,9 +13,9 @@ class Topic extends Component {
     const { tags } = this.props;
     return tags.map((tag) => {
       return (
-        <li key={tag._id} className="topic__list--item">
+        <Link to={`/${tag._id}`} key={tag._id} className="topic__list--item">
           {tag._id}
-        </li>
+        </Link>
       );
     });
   }

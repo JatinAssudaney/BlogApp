@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import Header from "./Header/Header";
 import "./App.css";
 import Landing from "./Landing/Landing";
-import PostNew from './Posts/PostCreate/PostNew';
+import PostNew from "./Posts/PostCreate/PostNew";
+import PostListOfTag from "./Posts/PostDisplay/PostListOfTag";
 import { fetchUser } from "../actions";
 class App extends Component {
   componentDidMount() {
@@ -20,7 +21,9 @@ class App extends Component {
             <Header />
             <Switch>
               <Route exact path="/" component={Landing} />
+              <Route path="/:topicName" exact component={PostListOfTag} />
               <Route exact path="/posts/new" component={PostNew} />
+
               {/* 
               <Route exact path="/surveys" component={Dashboard} />
               

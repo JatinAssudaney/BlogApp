@@ -1,22 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../../../actions";
+import { fetchPostsOfTag } from "../../../actions";
 
-class PostList extends Component {
-  state = { lastResponse: 0 };
-
-  postDetails = {
-    headerImage:
-      "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-    heading: "Implementing Zoom and Pan in Just 69 Lines of Javascript",
-    subHeading: "Lightweight, open for extension, simple to use",
-    body:
-      "For a recent work project, I had to add the capacity to zoom and pan a workspace with several different elements in it. I’ve decided to share my implementation as it’s lightweight, open for extension, simple to use, and requires only vanilla JavaScript.",
-    datePosted: Date.now(),
-  };
-
+class PostListOfTag extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    console.log(this.props.match.params.topicName);
+    const { topicName } = this.props.match.params;
+    this.props.fetchPostsOfTag(topicName);
   }
 
   renderContent() {
@@ -52,6 +42,6 @@ const mapStateToProps = (state) => ({
   posts: state.posts,
 });
 
-const mapDispatchToProps = { fetchPosts };
+const mapDispatchToProps = { fetchPostsOfTag };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostList);
+export default connect(mapStateToProps, mapDispatchToProps)(PostListOfTag);

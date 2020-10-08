@@ -31,6 +31,7 @@
 }
 
 .topic__list--item {
+  text-decoration: none;
   background-color: var(--main-color);
   margin-top: 1rem;
   margin-left: 0.5rem;

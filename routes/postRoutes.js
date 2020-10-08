@@ -10,10 +10,12 @@ module.exports = (app) => {
     // Returns headings,tags and datePosted from the posts with the implementation of Pagination
 
     try {
-      const posts = await Post.find({}, { heading: 1, tags: 1, datePosted: 1 })
-        .sort({ datePosted: -1 })
-        .skip(offset)
-        .limit(limit);
+      const posts = await Post.find(
+        {},
+        { heading: 1, tags: 1, datePosted: 1 }
+      ).sort({ datePosted: -1 });
+      // .skip(offset)
+      // .limit(limit);
       offset += limit;
       if (posts.length === 0) {
         res.send([]);
@@ -56,10 +58,9 @@ module.exports = (app) => {
           tags: { $elemMatch: { topicName: tag } },
         },
         { heading: 1, tags: 1, datePosted: 1 }
-      )
-        .sort({ datePosted: -1 })
-        .skip(offset)
-        .limit(limit);
+      ).sort({ datePosted: -1 });
+      // .skip(offset)
+      // .limit(limit);
       offset += limit;
       console.log(posts);
       if (posts.length === 0) {
@@ -77,7 +78,6 @@ module.exports = (app) => {
 
     try {
       const { heading, subHeading, headerImage, body, tags } = req.body;
-      const id = mongoose.Types.ObjectId("4edd40c86762e0fb12000003");
       const post = await new Post({
         heading,
         subHeading,
@@ -86,7 +86,7 @@ module.exports = (app) => {
         tags: tags.split(",").map((tag) => {
           return { topicName: tag.trim() };
         }),
-        _user: id,
+        _user: req.user._id,
         datePosted: Date.now(),
       }).save();
       res.send({});

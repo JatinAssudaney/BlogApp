@@ -15,6 +15,13 @@ export const fetchPosts = () => {
   };
 };
 
+export const fetchPostsOfTag = (topic) => {
+  return async (dispatch, getState) => {
+    const res = await axios.get(`/api/${topic}`);
+    dispatch({ type: FETCH_POSTS, payload: res.data });
+  };
+};
+
 export const fetchTags = () => {
   return async (dispatch, getState) => {
     const res = await axios.get("/api/posts/tags");
