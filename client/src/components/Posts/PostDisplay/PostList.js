@@ -18,7 +18,7 @@ class PostList extends Component {
     console.log(posts);
     return posts.map((post) => {
       return (
-        <Link to={`/${post._user}/${post._id}`} key={post._id}>
+        <Link to={`/user/${post._id}`} key={post._id}>
           <div className="post__image">
             <img src={post.headerImage} alt="" />
           </div>

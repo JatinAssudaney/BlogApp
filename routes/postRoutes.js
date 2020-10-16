@@ -10,17 +10,17 @@ module.exports = (app) => {
   app.get("/api/posts", async (req, res) => {
     // Returns headings,tags and datePosted from the posts with the implementation of Pagination
     try {
-      const trialPosts = await Post.aggregate([
-        {
-          $lookup: {
-            from: "users",
-            localField: "_user",
-            foreignField: "_id",
-            as: "_user",
-          },
-        },
-        { $unwind: { path: "$_user" } },
-      ]);
+      // const trialPosts = await Post.aggregate([
+      //   {
+      //     $lookup: {
+      //       from: "users",
+      //       localField: "_user",
+      //       foreignField: "_id",
+      //       as: "_user",
+      //     },
+      //   },
+      //   { $unwind: { path: "$_user" } },
+      // ]);
       const posts = await Post.find(
         {},
         {
@@ -37,10 +37,23 @@ module.exports = (app) => {
       if (posts.length === 0) {
         res.send([]);
       } else {
-        // res.send({ length: posts.length, posts });
-        console.log(trialPosts.length);
-
         res.send(posts);
+      }
+    } catch (error) {
+      res.send({ error: error.message });
+    }
+  });
+
+  app.get("/api/user/:id", async (req, res) => {
+    // Returns a Single Post
+    try {
+      const id = req.params.id;
+      const post = await Post.find({ _id: id });
+      console.log(id);
+      if (post.length === 0) {
+        res.send([]);
+      } else {
+        res.send(post);
       }
     } catch (error) {
       res.send({ error: error.message });

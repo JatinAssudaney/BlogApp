@@ -8,6 +8,7 @@ import Landing from "./Landing/Landing";
 import PostNew from "./Posts/PostCreate/PostNew";
 import PostListOfTag from "./Posts/PostDisplay/PostListOfTag";
 import { fetchUser } from "../actions";
+import PostShow from "./Posts/PostDisplay/PostShow";
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/" component={Landing} />
               <Route path="/:topicName" exact component={PostListOfTag} />
               <Route exact path="/posts/new" component={PostNew} />
+              <Route exact path="/user/:id" component={PostShow} />
 
               {/* 
               <Route exact path="/surveys" component={Dashboard} />

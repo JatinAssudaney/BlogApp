@@ -20,9 +20,9 @@ export const fetchPosts = () => {
   };
 };
 
-export const fetchPost = (userId, id) => {
+export const fetchPost = (id) => {
   return async (dispatch, getState) => {
-    const res = await axios.get(`/api/${userId}/${id}`);
+    const res = await axios.get(`/api/user/${id}`);
     dispatch({ type: FETCH_POSTS, payload: res.data });
   };
 };
