@@ -17,7 +17,6 @@ class PostList extends Component {
       day: "numeric",
     };
     const { posts } = this.props;
-    console.log(posts);
     return posts.map((post) => {
       return (
         <div className="post" key={post._id}>

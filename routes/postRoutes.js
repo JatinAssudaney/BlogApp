@@ -40,7 +40,6 @@ module.exports = (app) => {
     try {
       const id = req.params.id;
       const post = await Post.find({ _id: id });
-      console.log(id);
       if (post.length === 0) {
         res.send([]);
       } else {
@@ -74,7 +73,6 @@ module.exports = (app) => {
     // Returns top Posts from a particular topic from all the posts in our dB with implementation of Pagination
 
     const tag = req.params.topicName;
-    console.log(tag);
     try {
       const posts = await Post.find(
         {
@@ -92,7 +90,6 @@ module.exports = (app) => {
       // .skip(offset)
       // .limit(limit);
       offset += limit;
-      console.log(posts);
       if (posts.length === 0) {
         res.send([]);
       } else {
@@ -119,7 +116,6 @@ module.exports = (app) => {
         _user: req.user.id,
         datePosted: Date.now(),
       }).save();
-      console.log(post);
       res.send({});
     } catch (error) {
       res.send({ error: error.message });
