@@ -1,5 +1,14 @@
 # Blog App
 
+# Steps To Run App
+
+1. Install npm packages
+
+   > npm install
+
+2. Run the code
+   > npm run dev
+
 # Screenshots
 
 ## Login with Google to Create-Articles
