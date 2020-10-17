@@ -2,7 +2,7 @@
 
 # Steps To Run App
 
-1. Install npm packages
+1. Install npm packages both in root folder and client folder separately
 
    > npm install
 
