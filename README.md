@@ -4,19 +4,19 @@
 
 ## Login with Google to Create-Articles
 
-![google-oauth]("./assets/google-auth.JPG)
+![google-oauth]("https://github.com/JatinAssudaney/BlogApp/blob/master/assets/google-auth.JPG")
 
 ## Home Page
 
-![home]("./assets/home.JPG)
+![home]("https://github.com/JatinAssudaney/BlogApp/blob/master/assets/home.JPG")
 
 ## Articles Sorted on Basis of Various Tags
 
-![tags-list]("./assets/tag-list.JPG)
+![tags-list]("https://github.com/JatinAssudaney/BlogApp/blob/master/assets/tag-list.JPG")
 
 ## Create-Articles with Live-Preview
 
-![create-article]("./assets/create-article.JPG)
+![create-article]("https://github.com/JatinAssudaney/BlogApp/blob/master/assets/create-article.JPG")
 
 # Complete Task List
 
