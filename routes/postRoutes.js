@@ -10,24 +10,15 @@ module.exports = (app) => {
   app.get("/api/posts", async (req, res) => {
     // Returns headings,tags and datePosted from the posts with the implementation of Pagination
     try {
-      // const trialPosts = await Post.aggregate([
-      //   {
-      //     $lookup: {
-      //       from: "users",
-      //       localField: "_user",
-      //       foreignField: "_id",
-      //       as: "_user",
-      //     },
-      //   },
-      //   { $unwind: { path: "$_user" } },
-      // ]);
       const posts = await Post.find(
         {},
         {
           heading: 1,
+          subHeading: 1,
+          headerImage: 1,
+          body: 1,
           tags: 1,
           datePosted: 1,
-          _user: 1,
         }
       ).sort({ datePosted: -1 });
 
@@ -89,7 +80,14 @@ module.exports = (app) => {
         {
           tags: { $elemMatch: { topicName: tag } },
         },
-        { heading: 1, tags: 1, datePosted: 1 }
+        {
+          heading: 1,
+          subHeading: 1,
+          headerImage: 1,
+          body: 1,
+          tags: 1,
+          datePosted: 1,
+        }
       ).sort({ datePosted: -1 });
       // .skip(offset)
       // .limit(limit);

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPosts } from "../../../actions";
+import "./PostList.css";
+import ReactMarkdown from "react-markdown";
 
 class PostList extends Component {
   componentDidMount() {
@@ -18,17 +20,24 @@ class PostList extends Component {
     console.log(posts);
     return posts.map((post) => {
       return (
-        <Link to={`/user/${post._id}`} key={post._id}>
-          <div className="post__image">
-            <img src={post.headerImage} alt="" />
-          </div>
-          <div className="post__heading">{post.heading}</div>
-          <div className="post__subHeading">{post.subHeading}</div>
-          <div className="post__body">{post.body}</div>
-          <div className="post__datePosted">
-            {new Date(post.datePosted).toLocaleDateString("en-US", options)}
-          </div>
-        </Link>
+        <div className="post" key={post._id}>
+          <Link to={`/user/${post._id}`}>
+            <div className="post__datePosted">
+              {new Date(post.datePosted).toLocaleDateString("en-US", options)}
+            </div>
+            <img src={post.headerImage} alt="" className="post__headerImage" />
+            <div className="post__content">
+              <h3 className="post__heading">{post.heading}</h3>
+              <h5 className="post__subHeading">{post.subHeading}</h5>
+              <hr />
+              <ReactMarkdown
+                className="post__body"
+                source={post.body.substring(0, 100)}
+              />{" "}
+              ...
+            </div>
+          </Link>
+        </div>
       );
     });
   }

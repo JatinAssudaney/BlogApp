@@ -1,0 +1,27 @@
+.post__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.post {
+  width: 80%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.post > a {
+  text-decoration: none;
+  color: black;
+}
+
+.post__container .post__body {
+  font-size: small;
+}
+
+.post img {
+  margin-top: 1.4rem;
+  width: 20%;
+}
