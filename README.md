@@ -1,5 +1,23 @@
 # Blog App
 
+# Screenshots
+
+## Login with Google to Create-Articles
+
+![google-oauth]("/assets/google-auth.JPG)
+
+## Home Page
+
+![home]("/assets/home.JPG)
+
+## Articles Sorted on Basis of Various Tags
+
+![tags-list]("/assets/tag-list.JPG)
+
+## Create-Articles with Live-Preview
+
+![create-article]("/assets/create-article.JPG)
+
 # Complete Task List
 
 - [x] UI Design for App
