@@ -1,3 +1,5 @@
+# Blog App
+
 # Complete Task List
 
 - [x] UI Design for App
@@ -12,3 +14,20 @@
 - [x] Basic Redux Form to post to backend with data
 - [x] Preview with React-Markdown
 - [x] Live Preview Markdown
+- [x] Fetch Posts using Tags - Make Action Creator
+- [x] Fetching Posts UI Improvements
+- [x] Particular Post Route
+
+# Improvements Needed
+
+- [ ] Pagination
+- [ ] Infinite Scroll till data is available
+- [ ] Search Bar Enabled
+- [ ] UX/UI Improvements
+
+# Possible Updates
+
+- [ ] Imgur Api connection
+- [ ] Integration of Upload Button to connect with imgur and get URL
+- [ ] Imgur Upload Image and fetch url
+- [ ] More Modular Components
