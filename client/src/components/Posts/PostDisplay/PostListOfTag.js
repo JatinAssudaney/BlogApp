@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchPostsOfTag } from "../../../actions";
 
 class PostListOfTag extends Component {
@@ -17,7 +18,7 @@ class PostListOfTag extends Component {
     const { posts } = this.props;
     return posts.map((post) => {
       return (
-        <Fragment key={post._id}>
+        <Link to={`/user/${post._id}`} key={post._id}>
           <div className="post__image">
             <img src={post.headerImage} alt="" />
           </div>
@@ -27,7 +28,7 @@ class PostListOfTag extends Component {
           <div className="post__datePosted">
             {new Date(post.datePosted).toLocaleDateString("en-US", options)}
           </div>
-        </Fragment>
+        </Link>
       );
     });
   }

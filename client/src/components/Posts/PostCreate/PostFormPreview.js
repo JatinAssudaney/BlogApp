@@ -39,7 +39,9 @@ const PostFormReview = ({ formValues, submitPost, history }) => {
 
   const renderContent = () => {
     if (formValues) {
-      Prism.highlightAll();
+      setTimeout(() => {
+        Prism.highlightAll();
+      }, 0);
       const { heading, subHeading, headerImage, body, tags } = formValues;
       return (
         <div className="article__container">

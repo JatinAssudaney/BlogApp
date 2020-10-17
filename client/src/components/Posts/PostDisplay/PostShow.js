@@ -31,7 +31,9 @@ class PostShow extends Component {
     const { post } = this.props;
 
     if (post) {
-      Prism.highlightAll();
+      setTimeout(() => {
+        Prism.highlightAll();
+      }, 0);
       const { heading, subHeading, headerImage, body, tags } = post;
       return (
         <div className="article__container">
