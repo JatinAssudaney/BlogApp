@@ -1,6 +1,6 @@
 # webdevjourney - Blog App
 
-[View Demo](https://enigmatic-sands-47749.herokuapp.com/)
+[View Demo](https://enigmatic-sands-47749.herokuapp.com/){:target="\_blank"}
 
 # Steps To Run App
 
